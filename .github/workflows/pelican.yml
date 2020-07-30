@@ -22,11 +22,12 @@ jobs:
     - name: Pelican build
       run: make publish
 
-    - uses: JamesIves/github-pages-deploy-action@3.5.9
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: master # The branch the action should deploy to.
-          FOLDER: public # The folder the action should deploy.
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@3.5.9
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: master # The branch the action should deploy to.
+        FOLDER: public # The folder the action should deploy.
 
     # - uses: nelsonjchen/gh-pages-pelican-action@0.1.5
     #   env:
