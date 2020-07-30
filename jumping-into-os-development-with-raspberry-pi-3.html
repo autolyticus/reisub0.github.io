@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="./theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="./theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="./theme/pygments/monokai.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/solid.css">
+
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Digressions - A blog Atom">
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-131130629-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#333333">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#333333">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Microsoft EDGE -->
+    <meta name="msapplication-TileColor" content="#333333">
+
+<meta name="author" content="Govind KP" />
+<meta name="description" content="This is just a quick-start guide on how to write a bare metal program for the Raspberry Pi 3. This is heavily based on the amazing Raspberry Pi OS which details how to develop your own OS (in turn inspired heavily by the Linux kernel) However, a shortcoming of that …" />
+<meta name="keywords" content="os, linux">
+
+
+<meta property="og:site_name" content="Digressions - A blog"/>
+<meta property="og:title" content="Jumping into OS-Development with Raspberry Pi 3"/>
+<meta property="og:description" content="This is just a quick-start guide on how to write a bare metal program for the Raspberry Pi 3. This is heavily based on the amazing Raspberry Pi OS which details how to develop your own OS (in turn inspired heavily by the Linux kernel) However, a shortcoming of that …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="./jumping-into-os-development-with-raspberry-pi-3.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2018-12-17 00:00:00+05:30"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="./author/govind-kp.html">
+<meta property="article:section" content="os-dev"/>
+<meta property="article:tag" content="os"/>
+<meta property="article:tag" content="linux"/>
+<meta property="og:image" content="/logo.jpg">
+
+  <title>Digressions - A blog &ndash; Jumping into OS-Development with Raspberry Pi 3</title>
+
+</head>
+<body >
+  <aside>
+    <div>
+      <a href=".">
+        <img src="/logo.jpg" alt="Digressions - A blog" title="Digressions - A blog">
+      </a>
+
+      <h1>
+        <a href=".">Digressions - A blog</a>
+      </h1>
+
+<p>Govind KP</p>
+
+      <nav>
+        <ul class="list">
+
+
+              <li>
+                <a target="_self"
+                   href="./pages/about.html#about">
+                  About
+                </a>
+              </li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-Github" href="https://github.com/reisub0/" target="_blank">
+              <i class="fab fa-Github"></i>
+            </a>
+          </li>
+      </ul>
+    </div>
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="jumping-into-os-development-with-raspberry-pi-3">Jumping into OS-Development with Raspberry Pi 3</h1>
+    <p>
+      Posted on Mon 17 December 2018 in <a href="./category/os-dev.html">os-dev</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>This is just a quick-start guide on how to write a bare metal program for the Raspberry Pi 3. This is heavily based on the amazing <a href="https://github.com/s-matyukevich/raspberry-pi-os">Raspberry Pi OS</a> which details how to develop your own OS (in turn inspired heavily by the Linux kernel)</p>
+<p>However, a shortcoming of that tutorial are the <a href="https://github.com/s-matyukevich/raspberry-pi-os/blob/master/docs/Prerequisites.md">prerequisites</a>. A Pi 3 is not <em>that</em> cheap and USB-to-TTL converters, though much cheaper are still an additional piece of hardware you must obtain.</p>
+<p>There is a much cheaper alternative - QEMU. QEMU has had direct support for the Pi 3 since April 2018 through the <code>-M</code> flag.</p>
+<p>The code (Lesson 1 from the tutorial) is a simple "Hello world" program that is run completely independently of any library routines. It uses nothing but writing values on registers to achieve this goal.</p>
+<p>This guide is quickly going to run you through how you can run the code from the tutorial on QEMU. This assumes you are using a Linux distribution (Arch Linux) for brevity's sake.</p>
+<p>First, install the GNU CC Cross compiler for <code>aarch64</code>. The Raspberry Pi 3 has an ARM64 SoC. A cross-compiler builds code meant for another platform. Your system (which almost certainly has an x86_64 processor will normally compile code for itself with <code>gcc</code>)</p>
+<div class="highlight"><pre><span></span>pacman -S aarch64-linux-gnu-gcc
+</pre></div>
+
+
+<p>Now, we install QEMU, and RPI3 support for it.</p>
+<div class="highlight"><pre><span></span>pacman -S qemu qemu-arch-extra
+</pre></div>
+
+
+<p>For our source code, we clone the RPI OS repository,</p>
+<div class="highlight"><pre><span></span>git clone https://github.com/s-matyukevich/raspberry-pi-os
+<span class="nb">cd</span> raspberry-pi-os
+</pre></div>
+
+
+<p>Our code is in <code>src/lesson01</code>. Take some time to go through the line-by-line documentation at <a href="https://github.com/s-matyukevich/raspberry-pi-os/blob/master/docs/lesson01/rpi-os.md">docs/lesson01</a> which also explains our motivation and the code structure.</p>
+<p>Open each and every file in the <code>src</code> directory to understand how they all fit together. Take a look at <code>./Makefile</code> to understand the build process.</p>
+<p>We are now ready to build our code and run it on QEMU.</p>
+<div class="highlight"><pre><span></span>make clean <span class="o">&amp;&amp;</span> make
+</pre></div>
+
+
+<p>This generates our kernel image <code>kernel8.img</code>.</p>
+<p>Our job now is simple. Run this kernel image on our emulated system with QEMU. For this, use the following command.</p>
+<div class="highlight"><pre><span></span><span class="c1">#This sets uart to null and connects mini-uart to stdio, booting our kernel image</span>
+qemu-system-aarch64 -M raspi3 -serial null -serial mon:stdio -nographic -kernel kernel8.img
+</pre></div>
+
+
+<p>This should give us the output <code>Hello, world!</code> followed by echoing any input characters.</p>
+<p>Congratulations, you just made your first bare-metal application.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="./tag/os.html">os</a>
+      <a href="./tag/linux.html">linux</a>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="./theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Digressions - A blog ",
+  "url" : ".",
+  "image": "/logo.jpg",
+  "description": ""
+}
+</script>
+
+
+</body>
+</html>

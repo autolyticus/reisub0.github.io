@@ -1,2 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Digressions - A blog</title><link href="/" rel="alternate"></link><link href="feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2020-07-30T08:40:06Z</updated><subtitle>Govind KP</subtitle></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Digressions - A blog</title><link href="/" rel="alternate"></link><link href="feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2019-03-23T00:00:00+05:30</updated><subtitle>Govind KP</subtitle><entry><title>Writing Idiomatic Rust</title><link href="writing-idiomatic-rust.html" rel="alternate"></link><published>2019-03-23T00:00:00+05:30</published><updated>2019-03-23T00:00:00+05:30</updated><author><name>Govind KP</name></author><id>tag:None,2019-03-23:writing-idiomatic-rust.html</id><summary type="html">&lt;p&gt;&lt;a href="https://www.rust-lang.org/"&gt;Rust&lt;/a&gt; is, in a word, beautiful. If I was allowed to use multiple words, I'd probably add explicit, safe, well-designed and multi-paradigm into the mix. The language provides immense freedom, but at times it becomes a bit &lt;em&gt;too&lt;/em&gt; liberating. &lt;/p&gt;
+&lt;p&gt;You'd be restricting yourself if you simply thought of Rust as …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://www.rust-lang.org/"&gt;Rust&lt;/a&gt; is, in a word, beautiful. If I was allowed to use multiple words, I'd probably add explicit, safe, well-designed and multi-paradigm into the mix. The language provides immense freedom, but at times it becomes a bit &lt;em&gt;too&lt;/em&gt; liberating. &lt;/p&gt;
+&lt;p&gt;You'd be restricting yourself if you simply thought of Rust as a better C, even though it is. Rust provides abstractions when you really need them, unlike C. There's a thoughtfully designed type system (which does get in your way at times, but the benefits far outweigh the costs). But again, you'd be restricting yourself if you thought of Rust as a less abstract Haskell with no GC, even though it is. You don't have to worry about monads or functors or their "purity". &lt;/p&gt;
+&lt;p&gt;Rust is &lt;em&gt;multi-paradigm&lt;/em&gt;, meaning you (the programmer) have complete freedom to choose the best paradigm for the task. It is a crazy mishmash of the best features of many languages, and yet it manages to be so simple that &lt;a href="https://doc.rust-lang.org/reference/statements-and-expressions.html"&gt;everything is an expression&lt;/a&gt; with an elegant, consistent syntax. This means that you can write this (reading the &lt;code&gt;if&lt;/code&gt; and &lt;code&gt;else&lt;/code&gt; as similar to C):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;fn&lt;/span&gt; &lt;span class="nf"&gt;greater&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;: &lt;span class="kt"&gt;i64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;: &lt;span class="kt"&gt;i64&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt; &lt;span class="kt"&gt;i64&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;or this (similar to a ternary operator, no explicit return, the last expression in a function is considered to be the return):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;fn&lt;/span&gt; &lt;span class="nf"&gt;greater&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;: &lt;span class="kt"&gt;i64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;: &lt;span class="kt"&gt;i64&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt; &lt;span class="kt"&gt;i64&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;A casual reader might not appreciate the difference between the two. &lt;code&gt;return a&lt;/code&gt; is a expression. But adding the semicolon makes it a statement. Specifically, it makes it an &lt;a href="https://doc.rust-lang.org/reference/statements.html#expression-statements"&gt;ExpressionStatement&lt;/a&gt;. To make this clearer, take a look at this example, which is also valid Rust:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;fn&lt;/span&gt; &lt;span class="nf"&gt;greater&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;: &lt;span class="kt"&gt;i64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;: &lt;span class="kt"&gt;i64&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt; &lt;span class="kt"&gt;i64&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Of course, the second example is considered "idiomatic Rust", and I'm slowly coming to actually understand what that means. &lt;/p&gt;
+&lt;p&gt;I've been working on a &lt;a href="https://github.com/reisub0/nzb"&gt;small project of mine (~600 LoC)&lt;/a&gt; which is a terminal app that provides a good front-end for the &lt;a href="https://nozbe.com/"&gt;Nozbe&lt;/a&gt; project management tool. My code is still far from idiomatic, and not very readable. But I've learned and tried to make it so. Rust has its own unique dialect with best practices and no-nos. Here's what I've found helpful (as a beginner) for navigating this space and writing idiomatic code:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Find popular &lt;a href="https://crates.io/"&gt;crates&lt;/a&gt; that have similar tags and categories as yours and go through the source, seeing how problems and patterns are solved&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;a href="https://github.com/trending/rust"&gt;Rust tag&lt;/a&gt; on Github usually has excellent examples of good code quality&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Check out the official sources: the &lt;a href="https://doc.rust-lang.org/book/"&gt;Rust book&lt;/a&gt;, the &lt;code&gt;std&lt;/code&gt; implementations and &lt;a href="https://doc.rust-lang.org/"&gt;docs&lt;/a&gt; set the standard to aspire towards&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://doc.rust-lang.org/rust-by-example/"&gt;Rust by example&lt;/a&gt; is such a good resource that I have to mention it separately&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Prioritize code that is elegant and concise&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;Result&lt;/code&gt; and &lt;code&gt;Option&lt;/code&gt; types are your friends, use them everywhere&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There's a lot of beauty in Rust, and as a language, it enables programmers to express their thoughts in the most elegant way possible. It is outstanding in the faith it has in programmers and the freedom that it provides (at &lt;a href="https://ruudvanasseldonk.com/2016/11/30/zero-cost-abstractions"&gt;zero cost&lt;/a&gt;). I hope that this article helps you in expressing your own thoughts better.&lt;/p&gt;
+&lt;p&gt;Good luck.&lt;/p&gt;</content><category term="rust"></category><category term="rust"></category><category term="productivity"></category></entry><entry><title>Using Rust for the 'Blink' program on the Raspberry Pi 3</title><link href="using-rust-for-the-blink-program-on-the-raspberry-pi-3.html" rel="alternate"></link><published>2019-01-11T00:00:00+05:30</published><updated>2019-01-11T00:00:00+05:30</updated><author><name>Govind KP</name></author><id>tag:None,2019-01-11:using-rust-for-the-blink-program-on-the-raspberry-pi-3.html</id><summary type="html">&lt;p&gt;Rust is an amazing systems-level programming language that has &lt;em&gt;safety&lt;/em&gt; as one of its top design goals, along with &lt;em&gt;concurrency&lt;/em&gt; and &lt;em&gt;performance&lt;/em&gt;. It is systems-level, meaning you can call assembly code within it, or work with raw memory contents. Rust feels and writes like a high level language, but it …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Rust is an amazing systems-level programming language that has &lt;em&gt;safety&lt;/em&gt; as one of its top design goals, along with &lt;em&gt;concurrency&lt;/em&gt; and &lt;em&gt;performance&lt;/em&gt;. It is systems-level, meaning you can call assembly code within it, or work with raw memory contents. Rust feels and writes like a high level language, but it has all the powers of a lower level one like C. However, anything that has the potential to blow up in your face, like dereferencing a pointer that could be NULL, has to be wrapped up in &lt;code&gt;unsafe&lt;/code&gt; code blocks, meaning you're telling the compiler that you know what you're doing. Note that this does &lt;strong&gt;not&lt;/strong&gt; turn off the borrow checker.&lt;/p&gt;
+&lt;p&gt;Rust is heavily influenced by the likes of pure functional languages like Haskell while being pragmatic enough to not include a GC which would make it impractical for systems-level work. It borrows from the best aspects of these languages to create what is, in my opinion, the best language for low level work. The upfront cost and time investment for carefully defining your types and what data you're going to be working with might seem like too much of a price to pay compared to the 'Wild West' attitude of C. But the compiler really has got your back and you can be reasonably certain your code isn't going to blow up at runtime once it has passed the rigorous standards of the compiler. This does mean you will be fighting with the compiler a bit to get your code past it but it is worth it.&lt;/p&gt;
+&lt;p&gt;Especially when you're talking about bare metal programming where there's no debugging other than print statements (if you're lucky), it's almost impossible to know if the program you're writing in C is going to do what it's expected to do. Rust forces you to think about your code and your types and think about your error cases a bit more carefully. Once you've made it past the borrow checker and your code successfully compiles in Rust, you've also made it past so many pitfalls that the same code in C would have fallen into at runtime.&lt;/p&gt;
+&lt;p&gt;Rust is also strongly typed compared to weakly typed C. This means there's no unseen conversions to and from types. This means that another class of common errors from C are eliminated.&lt;/p&gt;
+&lt;p&gt;Enough ranting about programming languages, let's try to make something useful in Rust.&lt;/p&gt;
+&lt;p&gt;Here's what we're going to do: The Raspberry Pi 3 has an on-board Green LED that's usually mapped to SD Card activity by the operating system. Since we are going to implement the kernel, we're instead going to blink the so called &lt;code&gt;ACT&lt;/code&gt; LED at regular intervals. And we're going to do this all from pure Rust.&lt;/p&gt;
+&lt;p&gt;To achieve this, you need a working knowledge of writing to memory mapped registers. Instead of mucking about with bitwise operators and shifts, we're going to rely on Rust's amazing macro and type support, and use the &lt;code&gt;register&lt;/code&gt; crate to define the layout of our registers in memory. This enables us to write much more readable code. For similar code on how to define register contents, look around the excellent &lt;a href="https://github.com/rust-embedded/rust-raspi3-tutorial"&gt;rust-raspi3-tutorial&lt;/a&gt; repository.&lt;/p&gt;
+&lt;p&gt;You will likely need to be &lt;em&gt;ARMed&lt;/em&gt; with the &lt;a href="https://www.raspberrypi.org/app/uploads/2012/02/BCM2835-ARM-Peripherals.pdf"&gt;BCM2837 ARM Peripherals Manual&lt;/a&gt;. The link is for the BCM2835. There is no difference between the two, except for a different base address. You'll be interested in Chapter 6: GPIO. Look around for what registers you need to modify to achieve what you want.&lt;/p&gt;
+&lt;p&gt;Some caveats to remember:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The base address is 0x3F00_0000 as opposed to the 0x7E00_0000 on the manual&lt;/li&gt;
+&lt;li&gt;GPIO 29 is mapped to the ACT LED on the RPI 3B+.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you're stuck at any point, you may look at &lt;a href="https://github.com/reisub0/rust-raspi3-tutorial/tree/master/led"&gt;my code&lt;/a&gt; for the same.&lt;/p&gt;
+&lt;p&gt;Good luck.&lt;/p&gt;</content><category term="rust"></category><category term="os"></category><category term="rust"></category></entry><entry><title>Jumping into OS-Development with Raspberry Pi 3</title><link href="jumping-into-os-development-with-raspberry-pi-3.html" rel="alternate"></link><published>2018-12-17T00:00:00+05:30</published><updated>2018-12-17T00:00:00+05:30</updated><author><name>Govind KP</name></author><id>tag:None,2018-12-17:jumping-into-os-development-with-raspberry-pi-3.html</id><summary type="html">&lt;p&gt;This is just a quick-start guide on how to write a bare metal program for the Raspberry Pi 3. This is heavily based on the amazing &lt;a href="https://github.com/s-matyukevich/raspberry-pi-os"&gt;Raspberry Pi OS&lt;/a&gt; which details how to develop your own OS (in turn inspired heavily by the Linux kernel)&lt;/p&gt;
+&lt;p&gt;However, a shortcoming of that …&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is just a quick-start guide on how to write a bare metal program for the Raspberry Pi 3. This is heavily based on the amazing &lt;a href="https://github.com/s-matyukevich/raspberry-pi-os"&gt;Raspberry Pi OS&lt;/a&gt; which details how to develop your own OS (in turn inspired heavily by the Linux kernel)&lt;/p&gt;
+&lt;p&gt;However, a shortcoming of that tutorial are the &lt;a href="https://github.com/s-matyukevich/raspberry-pi-os/blob/master/docs/Prerequisites.md"&gt;prerequisites&lt;/a&gt;. A Pi 3 is not &lt;em&gt;that&lt;/em&gt; cheap and USB-to-TTL converters, though much cheaper are still an additional piece of hardware you must obtain.&lt;/p&gt;
+&lt;p&gt;There is a much cheaper alternative - QEMU. QEMU has had direct support for the Pi 3 since April 2018 through the &lt;code&gt;-M&lt;/code&gt; flag.&lt;/p&gt;
+&lt;p&gt;The code (Lesson 1 from the tutorial) is a simple "Hello world" program that is run completely independently of any library routines. It uses nothing but writing values on registers to achieve this goal.&lt;/p&gt;
+&lt;p&gt;This guide is quickly going to run you through how you can run the code from the tutorial on QEMU. This assumes you are using a Linux distribution (Arch Linux) for brevity's sake.&lt;/p&gt;
+&lt;p&gt;First, install the GNU CC Cross compiler for &lt;code&gt;aarch64&lt;/code&gt;. The Raspberry Pi 3 has an ARM64 SoC. A cross-compiler builds code meant for another platform. Your system (which almost certainly has an x86_64 processor will normally compile code for itself with &lt;code&gt;gcc&lt;/code&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pacman -S aarch64-linux-gnu-gcc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, we install QEMU, and RPI3 support for it.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pacman -S qemu qemu-arch-extra
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;For our source code, we clone the RPI OS repository,&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git clone https://github.com/s-matyukevich/raspberry-pi-os
+&lt;span class="nb"&gt;cd&lt;/span&gt; raspberry-pi-os
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Our code is in &lt;code&gt;src/lesson01&lt;/code&gt;. Take some time to go through the line-by-line documentation at &lt;a href="https://github.com/s-matyukevich/raspberry-pi-os/blob/master/docs/lesson01/rpi-os.md"&gt;docs/lesson01&lt;/a&gt; which also explains our motivation and the code structure.&lt;/p&gt;
+&lt;p&gt;Open each and every file in the &lt;code&gt;src&lt;/code&gt; directory to understand how they all fit together. Take a look at &lt;code&gt;./Makefile&lt;/code&gt; to understand the build process.&lt;/p&gt;
+&lt;p&gt;We are now ready to build our code and run it on QEMU.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make clean &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This generates our kernel image &lt;code&gt;kernel8.img&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Our job now is simple. Run this kernel image on our emulated system with QEMU. For this, use the following command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#This sets uart to null and connects mini-uart to stdio, booting our kernel image&lt;/span&gt;
+qemu-system-aarch64 -M raspi3 -serial null -serial mon:stdio -nographic -kernel kernel8.img
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This should give us the output &lt;code&gt;Hello, world!&lt;/code&gt; followed by echoing any input characters.&lt;/p&gt;
+&lt;p&gt;Congratulations, you just made your first bare-metal application.&lt;/p&gt;</content><category term="os-dev"></category><category term="os"></category><category term="linux"></category></entry></feed>

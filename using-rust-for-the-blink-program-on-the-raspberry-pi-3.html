@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="./theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="./theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="./theme/pygments/monokai.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/solid.css">
+
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Digressions - A blog Atom">
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-131130629-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#333333">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#333333">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Microsoft EDGE -->
+    <meta name="msapplication-TileColor" content="#333333">
+
+<meta name="author" content="Govind KP" />
+<meta name="description" content="Rust is an amazing systems-level programming language that has safety as one of its top design goals, along with concurrency and performance. It is systems-level, meaning you can call assembly code within it, or work with raw memory contents. Rust feels and writes like a high level language, but it …" />
+<meta name="keywords" content="os, rust">
+
+
+<meta property="og:site_name" content="Digressions - A blog"/>
+<meta property="og:title" content="Using Rust for the &#39;Blink&#39; program on the Raspberry Pi 3"/>
+<meta property="og:description" content="Rust is an amazing systems-level programming language that has safety as one of its top design goals, along with concurrency and performance. It is systems-level, meaning you can call assembly code within it, or work with raw memory contents. Rust feels and writes like a high level language, but it …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="./using-rust-for-the-blink-program-on-the-raspberry-pi-3.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-01-11 00:00:00+05:30"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="./author/govind-kp.html">
+<meta property="article:section" content="rust"/>
+<meta property="article:tag" content="os"/>
+<meta property="article:tag" content="rust"/>
+<meta property="og:image" content="/logo.jpg">
+
+  <title>Digressions - A blog &ndash; Using Rust for the &#39;Blink&#39; program on the Raspberry Pi 3</title>
+
+</head>
+<body >
+  <aside>
+    <div>
+      <a href=".">
+        <img src="/logo.jpg" alt="Digressions - A blog" title="Digressions - A blog">
+      </a>
+
+      <h1>
+        <a href=".">Digressions - A blog</a>
+      </h1>
+
+<p>Govind KP</p>
+
+      <nav>
+        <ul class="list">
+
+
+              <li>
+                <a target="_self"
+                   href="./pages/about.html#about">
+                  About
+                </a>
+              </li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-Github" href="https://github.com/reisub0/" target="_blank">
+              <i class="fab fa-Github"></i>
+            </a>
+          </li>
+      </ul>
+    </div>
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="using-rust-for-the-blink-program-on-the-raspberry-pi-3">Using Rust for the 'Blink' program on the Raspberry Pi 3</h1>
+    <p>
+      Posted on Fri 11 January 2019 in <a href="./category/rust.html">rust</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>Rust is an amazing systems-level programming language that has <em>safety</em> as one of its top design goals, along with <em>concurrency</em> and <em>performance</em>. It is systems-level, meaning you can call assembly code within it, or work with raw memory contents. Rust feels and writes like a high level language, but it has all the powers of a lower level one like C. However, anything that has the potential to blow up in your face, like dereferencing a pointer that could be NULL, has to be wrapped up in <code>unsafe</code> code blocks, meaning you're telling the compiler that you know what you're doing. Note that this does <strong>not</strong> turn off the borrow checker.</p>
+<p>Rust is heavily influenced by the likes of pure functional languages like Haskell while being pragmatic enough to not include a GC which would make it impractical for systems-level work. It borrows from the best aspects of these languages to create what is, in my opinion, the best language for low level work. The upfront cost and time investment for carefully defining your types and what data you're going to be working with might seem like too much of a price to pay compared to the 'Wild West' attitude of C. But the compiler really has got your back and you can be reasonably certain your code isn't going to blow up at runtime once it has passed the rigorous standards of the compiler. This does mean you will be fighting with the compiler a bit to get your code past it but it is worth it.</p>
+<p>Especially when you're talking about bare metal programming where there's no debugging other than print statements (if you're lucky), it's almost impossible to know if the program you're writing in C is going to do what it's expected to do. Rust forces you to think about your code and your types and think about your error cases a bit more carefully. Once you've made it past the borrow checker and your code successfully compiles in Rust, you've also made it past so many pitfalls that the same code in C would have fallen into at runtime.</p>
+<p>Rust is also strongly typed compared to weakly typed C. This means there's no unseen conversions to and from types. This means that another class of common errors from C are eliminated.</p>
+<p>Enough ranting about programming languages, let's try to make something useful in Rust.</p>
+<p>Here's what we're going to do: The Raspberry Pi 3 has an on-board Green LED that's usually mapped to SD Card activity by the operating system. Since we are going to implement the kernel, we're instead going to blink the so called <code>ACT</code> LED at regular intervals. And we're going to do this all from pure Rust.</p>
+<p>To achieve this, you need a working knowledge of writing to memory mapped registers. Instead of mucking about with bitwise operators and shifts, we're going to rely on Rust's amazing macro and type support, and use the <code>register</code> crate to define the layout of our registers in memory. This enables us to write much more readable code. For similar code on how to define register contents, look around the excellent <a href="https://github.com/rust-embedded/rust-raspi3-tutorial">rust-raspi3-tutorial</a> repository.</p>
+<p>You will likely need to be <em>ARMed</em> with the <a href="https://www.raspberrypi.org/app/uploads/2012/02/BCM2835-ARM-Peripherals.pdf">BCM2837 ARM Peripherals Manual</a>. The link is for the BCM2835. There is no difference between the two, except for a different base address. You'll be interested in Chapter 6: GPIO. Look around for what registers you need to modify to achieve what you want.</p>
+<p>Some caveats to remember:</p>
+<ul>
+<li>The base address is 0x3F00_0000 as opposed to the 0x7E00_0000 on the manual</li>
+<li>GPIO 29 is mapped to the ACT LED on the RPI 3B+.</li>
+</ul>
+<p>If you're stuck at any point, you may look at <a href="https://github.com/reisub0/rust-raspi3-tutorial/tree/master/led">my code</a> for the same.</p>
+<p>Good luck.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="./tag/os.html">os</a>
+      <a href="./tag/rust.html">rust</a>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="./theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Digressions - A blog ",
+  "url" : ".",
+  "image": "/logo.jpg",
+  "description": ""
+}
+</script>
+
+
+</body>
+</html>

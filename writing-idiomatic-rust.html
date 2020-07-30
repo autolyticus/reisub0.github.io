@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="./theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="./theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="./theme/pygments/monokai.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/solid.css">
+
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Digressions - A blog Atom">
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-131130629-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#333333">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#333333">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Microsoft EDGE -->
+    <meta name="msapplication-TileColor" content="#333333">
+
+<meta name="author" content="Govind KP" />
+<meta name="description" content="Rust is, in a word, beautiful. If I was allowed to use multiple words, I&#39;d probably add explicit, safe, well-designed and multi-paradigm into the mix. The language provides immense freedom, but at times it becomes a bit too liberating. You&#39;d be restricting yourself if you simply thought of Rust as …" />
+<meta name="keywords" content="rust, productivity">
+
+
+<meta property="og:site_name" content="Digressions - A blog"/>
+<meta property="og:title" content="Writing Idiomatic Rust"/>
+<meta property="og:description" content="Rust is, in a word, beautiful. If I was allowed to use multiple words, I&#39;d probably add explicit, safe, well-designed and multi-paradigm into the mix. The language provides immense freedom, but at times it becomes a bit too liberating. You&#39;d be restricting yourself if you simply thought of Rust as …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="./writing-idiomatic-rust.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-03-23 00:00:00+05:30"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="./author/govind-kp.html">
+<meta property="article:section" content="rust"/>
+<meta property="article:tag" content="rust"/>
+<meta property="article:tag" content="productivity"/>
+<meta property="og:image" content="/logo.jpg">
+
+  <title>Digressions - A blog &ndash; Writing Idiomatic Rust</title>
+
+</head>
+<body >
+  <aside>
+    <div>
+      <a href=".">
+        <img src="/logo.jpg" alt="Digressions - A blog" title="Digressions - A blog">
+      </a>
+
+      <h1>
+        <a href=".">Digressions - A blog</a>
+      </h1>
+
+<p>Govind KP</p>
+
+      <nav>
+        <ul class="list">
+
+
+              <li>
+                <a target="_self"
+                   href="./pages/about.html#about">
+                  About
+                </a>
+              </li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-Github" href="https://github.com/reisub0/" target="_blank">
+              <i class="fab fa-Github"></i>
+            </a>
+          </li>
+      </ul>
+    </div>
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="writing-idiomatic-rust">Writing Idiomatic Rust</h1>
+    <p>
+      Posted on Sat 23 March 2019 in <a href="./category/rust.html">rust</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><a href="https://www.rust-lang.org/">Rust</a> is, in a word, beautiful. If I was allowed to use multiple words, I'd probably add explicit, safe, well-designed and multi-paradigm into the mix. The language provides immense freedom, but at times it becomes a bit <em>too</em> liberating. </p>
+<p>You'd be restricting yourself if you simply thought of Rust as a better C, even though it is. Rust provides abstractions when you really need them, unlike C. There's a thoughtfully designed type system (which does get in your way at times, but the benefits far outweigh the costs). But again, you'd be restricting yourself if you thought of Rust as a less abstract Haskell with no GC, even though it is. You don't have to worry about monads or functors or their "purity". </p>
+<p>Rust is <em>multi-paradigm</em>, meaning you (the programmer) have complete freedom to choose the best paradigm for the task. It is a crazy mishmash of the best features of many languages, and yet it manages to be so simple that <a href="https://doc.rust-lang.org/reference/statements-and-expressions.html">everything is an expression</a> with an elegant, consistent syntax. This means that you can write this (reading the <code>if</code> and <code>else</code> as similar to C):</p>
+<div class="highlight"><pre><span></span><span class="k">fn</span> <span class="nf">greater</span><span class="p">(</span><span class="n">a</span>: <span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="n">b</span>: <span class="kt">i64</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i64</span> <span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+
+<p>or this (similar to a ternary operator, no explicit return, the last expression in a function is considered to be the return):</p>
+<div class="highlight"><pre><span></span><span class="k">fn</span> <span class="nf">greater</span><span class="p">(</span><span class="n">a</span>: <span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="n">b</span>: <span class="kt">i64</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i64</span> <span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+
+<p>A casual reader might not appreciate the difference between the two. <code>return a</code> is a expression. But adding the semicolon makes it a statement. Specifically, it makes it an <a href="https://doc.rust-lang.org/reference/statements.html#expression-statements">ExpressionStatement</a>. To make this clearer, take a look at this example, which is also valid Rust:</p>
+<div class="highlight"><pre><span></span><span class="k">fn</span> <span class="nf">greater</span><span class="p">(</span><span class="n">a</span>: <span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="n">b</span>: <span class="kt">i64</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i64</span> <span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+
+<p>Of course, the second example is considered "idiomatic Rust", and I'm slowly coming to actually understand what that means. </p>
+<p>I've been working on a <a href="https://github.com/reisub0/nzb">small project of mine (~600 LoC)</a> which is a terminal app that provides a good front-end for the <a href="https://nozbe.com/">Nozbe</a> project management tool. My code is still far from idiomatic, and not very readable. But I've learned and tried to make it so. Rust has its own unique dialect with best practices and no-nos. Here's what I've found helpful (as a beginner) for navigating this space and writing idiomatic code:</p>
+<ul>
+<li>
+<p>Find popular <a href="https://crates.io/">crates</a> that have similar tags and categories as yours and go through the source, seeing how problems and patterns are solved</p>
+</li>
+<li>
+<p>The <a href="https://github.com/trending/rust">Rust tag</a> on Github usually has excellent examples of good code quality</p>
+</li>
+<li>
+<p>Check out the official sources: the <a href="https://doc.rust-lang.org/book/">Rust book</a>, the <code>std</code> implementations and <a href="https://doc.rust-lang.org/">docs</a> set the standard to aspire towards</p>
+</li>
+<li>
+<p><a href="https://doc.rust-lang.org/rust-by-example/">Rust by example</a> is such a good resource that I have to mention it separately</p>
+</li>
+<li>
+<p>Prioritize code that is elegant and concise</p>
+</li>
+<li>
+<p>The <code>Result</code> and <code>Option</code> types are your friends, use them everywhere</p>
+</li>
+</ul>
+<p>There's a lot of beauty in Rust, and as a language, it enables programmers to express their thoughts in the most elegant way possible. It is outstanding in the faith it has in programmers and the freedom that it provides (at <a href="https://ruudvanasseldonk.com/2016/11/30/zero-cost-abstractions">zero cost</a>). I hope that this article helps you in expressing your own thoughts better.</p>
+<p>Good luck.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="./tag/rust.html">rust</a>
+      <a href="./tag/productivity.html">productivity</a>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="./theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Digressions - A blog ",
+  "url" : ".",
+  "image": "/logo.jpg",
+  "description": ""
+}
+</script>
+
+
+</body>
+</html>
