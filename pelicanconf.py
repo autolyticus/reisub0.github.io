@@ -32,6 +32,14 @@ PLUGIN_PATHS = [
 ]
 PLUGINS = ['sitemap', 'render_math', 'simple_footnotes']
 
+# CC_LICENSE = {
+#     'name': 'Creative Commons Attribution-ShareAlike',
+#     'version': '4.0',
+#     'slug': 'by-sa'
+# }
+COPYRIGHT_YEAR = datetime.now().year
+
+
 EXTRA_PATH_METADATA = {
     # 'extra/custom.css': {'path': 'custom.css'},
     'extra/robots.txt': {
