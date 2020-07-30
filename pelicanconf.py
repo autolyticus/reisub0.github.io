@@ -17,7 +17,7 @@ THEME_COLOR_AUTO_DETECT_BROWSER_PREFERENCE = True
 THEME_COLOR_ENABLE_USER_OVERRIDE = True
 
 PATH = 'content'
-OUTPUT_PATH = 'output'
+OUTPUT_PATH = 'public'
 STATIC_PATHS = [
     # 'images',
     'extra',  # this
