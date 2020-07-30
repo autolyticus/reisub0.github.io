@@ -8,7 +8,8 @@ AUTHOR = 'Govind KP'
 SITENAME = 'Digressions - A blog'
 SITETITLE = 'Digressions - A blog'
 SITESUBTITLE = 'Govind KP'
-SITEURL = 'http://localhost:8000'
+SITEURL = ''
+RELATIVE_URLS = True
 
 BROWSER_COLOR='#333333'
 PYGMENTS_STYLE='monokai'
