@@ -1,0 +1,12 @@
+[submodule "theme/Flex"]
+	path = theme/Flex
+	url = https://github.com/alexandrevicenzi/Flex
+[submodule "plugins/simple_footnotes"]
+	path = plugins/simple_footnotes
+	url = https://github.com/pelican-plugins/simple-footnotes
+[submodule "plugins/render_math"]
+	path = plugins/render_math
+	url = https://github.com/pelican-plugins/render-math
+[submodule "plugins/sitemap"]
+	path = plugins/sitemap
+	url = https://github.com/pelican-plugins/sitemap
