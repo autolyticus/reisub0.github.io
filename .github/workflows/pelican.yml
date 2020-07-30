@@ -13,6 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Checkout submodules
+      uses: textbook/git-checkout-submodule-action@master
     - uses: nelsonjchen/gh-pages-pelican-action@0.1.5
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
