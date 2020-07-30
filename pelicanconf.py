@@ -78,7 +78,12 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Social widget
-SOCIAL = (('Github', 'https://github.com/reisub0/'), )
+# SOCIAL = (('Github', 'https://github.com/reisub0/'), )
+SOCIAL = (
+    ('github', 'https://github.com/reisub0/'),
+    ('linkedin', 'https://linkedin.com/in/govind-kp/'),
+    # ('rss', '/blog/feeds/all.atom.xml'),
+)
 
 DEFAULT_PAGINATION = 5
 
