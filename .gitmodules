@@ -7,3 +7,6 @@
 [submodule "plugins/sitemap"]
 	path = plugins/sitemap
 	url = https://github.com/pelican-plugins/sitemap
+[submodule "theme/Flex"]
+	path = theme/Flex
+	url = git@github.com:reisub0/Flex
