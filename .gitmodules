@@ -9,4 +9,4 @@
 	url = https://github.com/pelican-plugins/sitemap
 [submodule "theme/Flex"]
 	path = theme/Flex
-	url = git@github.com:reisub0/Flex
+	url = https://github.com/reisub0/Flex
