@@ -88,8 +88,9 @@ AUTHOR_FEED_RSS = None
 # SOCIAL = (('Github', 'https://github.com/reisub0/'), )
 SOCIAL = (
     ('github', 'https://github.com/reisub0/'),
+    ('gitlab', 'https://gitlab.com/reisub0/'),
     ('linkedin', 'https://linkedin.com/in/govind-kp/'),
-    # ('rss', '/blog/feeds/all.atom.xml'),
+    ('rss', '/feeds/all.atom.xml'),
 )
 
 DEFAULT_PAGINATION = 5
