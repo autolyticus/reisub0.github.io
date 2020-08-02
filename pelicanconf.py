@@ -29,8 +29,15 @@ PLUGIN_PATHS = [
     'plugins/sitemap/pelican/plugins',
     'plugins/render_math/pelican/plugins',
     'plugins/simple_footnotes/pelican/plugins',
+    'plugins',
 ]
-PLUGINS = ['sitemap', 'render_math', 'simple_footnotes']
+PLUGINS = [
+    'sitemap',
+    'render_math',
+    'simple_footnotes',
+    'neighbors',
+    'post_stats',
+]
 
 # CC_LICENSE = {
 #     'name': 'Creative Commons Attribution-ShareAlike',
