@@ -4,84 +4,84 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>/</loc>
-<lastmod>2020-08-01T08:52:11-00:00</lastmod>
+<loc>https://reisub0.github.io/</loc>
+<lastmod>2020-08-02T12:41:04-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/pages/about.html</loc>
+<loc>https://reisub0.github.io/pages/about.html</loc>
 <lastmod>2020-07-30T00:00:00+05:30</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/writing-idiomatic-rust.html</loc>
+<loc>https://reisub0.github.io/writing-idiomatic-rust.html</loc>
 <lastmod>2019-03-23T00:00:00+05:30</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/using-rust-for-the-blink-program-on-the-raspberry-pi-3.html</loc>
+<loc>https://reisub0.github.io/using-rust-for-the-blink-program-on-the-raspberry-pi-3.html</loc>
 <lastmod>2019-01-11T00:00:00+05:30</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/jumping-into-os-development-with-raspberry-pi-3.html</loc>
+<loc>https://reisub0.github.io/jumping-into-os-development-with-raspberry-pi-3.html</loc>
 <lastmod>2018-12-17T00:00:00+05:30</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/os-dev.html</loc>
+<loc>https://reisub0.github.io/category/os-dev.html</loc>
 <lastmod>2018-12-17T00:00:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/rust.html</loc>
+<loc>https://reisub0.github.io/category/rust.html</loc>
 <lastmod>2019-03-23T00:00:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/os.html</loc>
+<loc>https://reisub0.github.io/tag/os.html</loc>
 <lastmod>2019-01-11T00:00:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/productivity.html</loc>
+<loc>https://reisub0.github.io/tag/productivity.html</loc>
 <lastmod>2019-03-23T00:00:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/rust.html</loc>
+<loc>https://reisub0.github.io/tag/rust.html</loc>
 <lastmod>2019-03-23T00:00:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/linux.html</loc>
+<loc>https://reisub0.github.io/tag/linux.html</loc>
 <lastmod>2018-12-17T00:00:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/author/govind-kp.html</loc>
+<loc>https://reisub0.github.io/author/govind-kp.html</loc>
 <lastmod>2019-03-23T00:00:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
