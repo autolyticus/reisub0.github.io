@@ -90,8 +90,13 @@ SOCIAL = (
     ('github', 'https://github.com/reisub0/'),
     ('gitlab', 'https://gitlab.com/reisub0/'),
     ('linkedin', 'https://linkedin.com/in/govind-kp/'),
+    ('envelope', 'mailto:reisub0-at-gmail.com'),
     ('rss', '/feeds/all.atom.xml'),
 )
+
+LINKS = [
+    ('Categories', '/categories.html')
+]
 
 DEFAULT_PAGINATION = 10
 
