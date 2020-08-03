@@ -95,6 +95,7 @@ aside {
 
     h1 {
       margin: 15px 0 5px 0;
+      font-weight: 300;
     }
 
     p {
@@ -402,11 +403,11 @@ ul.social {
     display: inline;
   }
 
-  a:hover {
-    z-index: 2;
-    -webkit-transform: translateY(-2px);
-    transform: translateY(-2px);
-  }
+  // a:hover {
+  //   z-index: 2;
+  //   -webkit-transform: translateY(-2px);
+  //   transform: translateY(-2px);
+  // }
 
   a {
     display: inline-block;
@@ -438,16 +439,18 @@ ul.social {
     background-color: @pinterest-bg-color;
   }
 
-  a.sc-linkedin {
-    background-color: @linkedin-bg-color;
+  a.sc-linkedin:hover {
+    // background-color: @linkedin-bg-color;
+    color: @linkedin-bg-color;
   }
 
   a.sc-medium {
     background-color: @medium-bg-color;
   }
 
-  a.sc-rss {
-    background-color: @rss-bg-color;
+  a.sc-rss:hover {
+    // background-color: @rss-bg-color;
+    color: @rss-bg-color;
   }
 
   a.sc-stack-overflow {
@@ -470,12 +473,14 @@ ul.social {
     background-color: @youtube-bg-color;
   }
 
-  a.sc-github, a.sc-github-alt {
-    background-color: @github-bg-color;
+  a.sc-github:hover, a.sc-github-alt:hover {
+    // background-color: @github-bg-color;
+    // color: @github-bg-color;
   }
 
-  a.sc-envelope {
-    background-color: @email-bg-color;
+  a.sc-envelope:hover {
+    // background-color: @email-bg-color;
+    color: @email-bg-color;
   }
 
   a.sc-reddit {
@@ -486,8 +491,9 @@ ul.social {
     background-color: @soundcloud-bg-color;
   }
 
-  a.sc-gitlab {
-    background-color: @gitlab-bg-color;
+  a.sc-gitlab:hover {
+    // background-color: @gitlab-bg-color;
+    color: @gitlab-bg-color;
   }
 
   a.sc-xing {
