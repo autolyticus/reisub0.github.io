@@ -20,7 +20,7 @@ THEME_COLOR_ENABLE_USER_OVERRIDE = False
 PATH = 'content'
 OUTPUT_PATH = 'public'
 STATIC_PATHS = [
-    # 'images',
+    'images',
     'extra',  # this
 ]
 
