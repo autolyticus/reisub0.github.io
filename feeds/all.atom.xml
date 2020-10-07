@@ -3,29 +3,26 @@
 &lt;p&gt;You'd be restricting yourself if you simply thought of Rust as …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://www.rust-lang.org/"&gt;Rust&lt;/a&gt; is, in a word, beautiful. If I was allowed to use multiple words, I'd probably add explicit, safe, well-designed and multi-paradigm into the mix. The language provides immense freedom, but at times it becomes a bit &lt;em&gt;too&lt;/em&gt; liberating. &lt;/p&gt;
 &lt;p&gt;You'd be restricting yourself if you simply thought of Rust as a better C, even though it is. Rust provides abstractions when you really need them, unlike C. There's a thoughtfully designed type system (which does get in your way at times, but the benefits far outweigh the costs). But again, you'd be restricting yourself if you thought of Rust as a less abstract Haskell with no GC, even though it is. You don't have to worry about monads or functors or their "purity". &lt;/p&gt;
 &lt;p&gt;Rust is &lt;em&gt;multi-paradigm&lt;/em&gt;, meaning you (the programmer) have complete freedom to choose the best paradigm for the task. It is a crazy mishmash of the best features of many languages, and yet it manages to be so simple that &lt;a href="https://doc.rust-lang.org/reference/statements-and-expressions.html"&gt;everything is an expression&lt;/a&gt; with an elegant, consistent syntax. This means that you can write this (reading the &lt;code&gt;if&lt;/code&gt; and &lt;code&gt;else&lt;/code&gt; as similar to C):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;fn&lt;/span&gt; &lt;span class="nf"&gt;greater&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;: &lt;span class="kt"&gt;i64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;: &lt;span class="kt"&gt;i64&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt; &lt;span class="kt"&gt;i64&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="rust highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;fn&lt;/span&gt; &lt;span class="nf"&gt;greater&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;: &lt;span class="kt"&gt;i64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;: &lt;span class="kt"&gt;i64&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt; &lt;span class="kt"&gt;i64&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;or this (similar to a ternary operator, no explicit return, the last expression in a function is considered to be the return):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;fn&lt;/span&gt; &lt;span class="nf"&gt;greater&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;: &lt;span class="kt"&gt;i64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;: &lt;span class="kt"&gt;i64&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt; &lt;span class="kt"&gt;i64&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="rust highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;fn&lt;/span&gt; &lt;span class="nf"&gt;greater&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;: &lt;span class="kt"&gt;i64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;: &lt;span class="kt"&gt;i64&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt; &lt;span class="kt"&gt;i64&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;A casual reader might not appreciate the difference between the two. &lt;code&gt;return a&lt;/code&gt; is a expression. But adding the semicolon makes it a statement. Specifically, it makes it an &lt;a href="https://doc.rust-lang.org/reference/statements.html#expression-statements"&gt;ExpressionStatement&lt;/a&gt;. To make this clearer, take a look at this example, which is also valid Rust:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;fn&lt;/span&gt; &lt;span class="nf"&gt;greater&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;: &lt;span class="kt"&gt;i64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;: &lt;span class="kt"&gt;i64&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt; &lt;span class="kt"&gt;i64&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="rust highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;fn&lt;/span&gt; &lt;span class="nf"&gt;greater&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;: &lt;span class="kt"&gt;i64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;: &lt;span class="kt"&gt;i64&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt; &lt;span class="kt"&gt;i64&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Of course, the second example is considered "idiomatic Rust", and I'm slowly coming to actually understand what that means. &lt;/p&gt;
 &lt;p&gt;I've been working on a &lt;a href="https://github.com/reisub0/nzb"&gt;small project of mine (~600 LoC)&lt;/a&gt; which is a terminal app that provides a good front-end for the &lt;a href="https://nozbe.com/"&gt;Nozbe&lt;/a&gt; project management tool. My code is still far from idiomatic, and not very readable. But I've learned and tried to make it so. Rust has its own unique dialect with best practices and no-nos. Here's what I've found helpful (as a beginner) for navigating this space and writing idiomatic code:&lt;/p&gt;
@@ -71,34 +68,29 @@
 &lt;p&gt;The code (Lesson 1 from the tutorial) is a simple "Hello world" program that is run completely independently of any library routines. It uses nothing but writing values on registers to achieve this goal.&lt;/p&gt;
 &lt;p&gt;This guide is quickly going to run you through how you can run the code from the tutorial on QEMU. This assumes you are using a Linux distribution (Arch Linux) for brevity's sake.&lt;/p&gt;
 &lt;p&gt;First, install the GNU CC Cross compiler for &lt;code&gt;aarch64&lt;/code&gt;. The Raspberry Pi 3 has an ARM64 SoC. A cross-compiler builds code meant for another platform. Your system (which almost certainly has an x86_64 processor will normally compile code for itself with &lt;code&gt;gcc&lt;/code&gt;)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pacman -S aarch64-linux-gnu-gcc
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="bash highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pacman -S aarch64-linux-gnu-gcc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now, we install QEMU, and RPI3 support for it.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pacman -S qemu qemu-arch-extra
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="bash highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pacman -S qemu qemu-arch-extra
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;For our source code, we clone the RPI OS repository,&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git clone https://github.com/s-matyukevich/raspberry-pi-os
+&lt;div class="bash highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git clone https://github.com/s-matyukevich/raspberry-pi-os
 &lt;span class="nb"&gt;cd&lt;/span&gt; raspberry-pi-os
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Our code is in &lt;code&gt;src/lesson01&lt;/code&gt;. Take some time to go through the line-by-line documentation at &lt;a href="https://github.com/s-matyukevich/raspberry-pi-os/blob/master/docs/lesson01/rpi-os.md"&gt;docs/lesson01&lt;/a&gt; which also explains our motivation and the code structure.&lt;/p&gt;
 &lt;p&gt;Open each and every file in the &lt;code&gt;src&lt;/code&gt; directory to understand how they all fit together. Take a look at &lt;code&gt;./Makefile&lt;/code&gt; to understand the build process.&lt;/p&gt;
 &lt;p&gt;We are now ready to build our code and run it on QEMU.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make clean &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="bash highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;make clean &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;This generates our kernel image &lt;code&gt;kernel8.img&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Our job now is simple. Run this kernel image on our emulated system with QEMU. For this, use the following command.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#This sets uart to null and connects mini-uart to stdio, booting our kernel image&lt;/span&gt;
+&lt;div class="bash highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#This sets uart to null and connects mini-uart to stdio, booting our kernel image&lt;/span&gt;
 qemu-system-aarch64 -M raspi3 -serial null -serial mon:stdio -nographic -kernel kernel8.img
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;This should give us the output &lt;code&gt;Hello, world!&lt;/code&gt; followed by echoing any input characters.&lt;/p&gt;
 &lt;p&gt;Congratulations, you just made your first bare-metal application.&lt;/p&gt;</content><category term="tech"></category></entry></feed>

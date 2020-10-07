@@ -48,17 +48,17 @@
     <meta name="msapplication-TileColor" content="#333333">
 
 <meta name="author" content="Govind KP" />
-<meta name="description" content="The challenge we all face is how to maintain the benefits of breadth, diverse experience, interdisciplinary thinking, and delayed concentration in a world that increasingly incentivizes, even demands, hyperspecialization - Range, David Epstein This world is a very complex, interconnected web of systems. The same goes with the various disciplines that …" />
+<meta name="description" content="Part 1 - Complexity This world is a very complex, interconnected web of systems. We&#39;ve tried to make sense of this by creating various (seemingly-unrelated) disciplines. With the huge number of disciplines, I think you&#39;ll agree with me when I say that it&#39;s impossible for any one person to be an …" />
 <meta name="keywords" content="learning, systems">
 
 
 <meta property="og:site_name" content="Digressions - A blog"/>
 <meta property="og:title" content="Fractal Learning"/>
-<meta property="og:description" content="The challenge we all face is how to maintain the benefits of breadth, diverse experience, interdisciplinary thinking, and delayed concentration in a world that increasingly incentivizes, even demands, hyperspecialization - Range, David Epstein This world is a very complex, interconnected web of systems. The same goes with the various disciplines that …"/>
+<meta property="og:description" content="Part 1 - Complexity This world is a very complex, interconnected web of systems. We&#39;ve tried to make sense of this by creating various (seemingly-unrelated) disciplines. With the huge number of disciplines, I think you&#39;ll agree with me when I say that it&#39;s impossible for any one person to be an …"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="../drafts/fractal-learning.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2020-07-30 00:00:00+05:30"/>
+<meta property="article:published_time" content="2020-10-07 00:00:00+05:30"/>
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="../author/govind-kp.html">
 <meta property="article:section" content="learning"/>
@@ -143,30 +143,47 @@
       
     <h1 id="fractal-learning">Fractal Learning</h1>
     <p>
-      Posted on Thu 30 July 2020 in <a href="../category/learning.html">learning</a>
+      Posted on Wed 07 October 2020 in <a href="../category/learning.html">learning</a>
 
-        &#8226; 3 min read
+        &#8226; 5 min read
     </p>
   </header>
 
 
   <div>
-    <blockquote>
-<p>The challenge we all face is how to maintain the benefits of breadth, diverse experience, interdisciplinary thinking, and delayed concentration in a world that increasingly incentivizes, even demands, hyperspecialization - Range, David Epstein</p>
+    <p><img alt="tree" src="../images/tree.gif"></p>
+<h2>Part 1 - Complexity</h2>
+<p>This world is a very complex, interconnected web of systems. We've tried to make sense of this by creating various (seemingly-unrelated) disciplines. With the huge number of disciplines, I think you'll agree with me when I say that it's impossible for any one person to be an expert in all of these fields.</p>
+<p>It's turtles all the way down, however, and even as you go deeper into a field, there's still so much complexity that you would despair at the idea of ever really understanding anything even within the confines of one specific field.</p>
+<p>Most fields seem to exhibit a fractal pattern. By this, I mean that the more you try to <em>zoom in</em> onto a specific aspect of a system, the more detail is revealed. The same is true whether you're talking about economics or physics or biology. A whole new world of detail is revealed at all the different levels.</p>
+<p>Of course, when confronted with complexity, our first instinct is to <em>reduce</em> and to treat these in isolation, and we've tried to come to terms with the complexity within fields by creating <strong>specializations</strong>, which are essentially sub-fields. </p>
+<p>This is why a microbiologist seems to speak a completely different language from an ecologist. This might make you wonder whether the two fields are even related; one could argue that they both view the world through a radically different set of lenses.</p>
+<p>As human knowledge progresses and we're able to understand systems at different levels, we're continuously spawning newer and newer specializations and hyperspecializations.</p>
+<blockquote>
+<p>The challenge we all face is how to maintain the benefits of breadth, diverse experience, interdisciplinary thinking, and delayed concentration in a world that increasingly incentivizes, even demands, hyperspecialization</p>
+<p>From the book Range - David Epstein</p>
 </blockquote>
-<p>This world is a very complex, interconnected web of systems. The same goes with the various disciplines that we've invented to better understand how things fit together.</p>
-<p>Most fields seem to exhibit a very similar fractal pattern, where the more you zoom in onto an aspect of a system, the more detail is revealed. The same is true whether you're talking about economics or physics or biology. There's a whole new world of detail at all the different layers. A microbiologist speaks a completely different language from an ecologist. One could even argue that they both view the world through a radically different set of lenses.</p>
-<p>It's turtles all the way down, however, and even as you go deeper into a field, there's still so much complexity that you would despair at the idea of ever really understanding anything.</p>
-<p>I'm going to talk mainly about computer science here, due to my familiarity. But I'm sure the concepts map equally well even for other domains.</p>
-<p>You could spend years and years in deep study and you still wouldn't really actually understand how a computer worked. It's possible to choose a very specialized niche field and claim some amount of expertise in it, but for the average case, it might sometimes seem like a futile effort. There is so much underlying complexity behind even something as simple as enabling you to read these words on the screen. The whole field is in essence just a city floating in the clouds. There are towers of abstraction and abstractions built on top of those towers to make this happen:</p>
-<p>1) Your CPU (essentially a tiny piece of silicon that can't do much but add two numbers together) executed a few million instructions during the time you were reading this sentence. Welcome to Computer Architecture!
-2) These instructions are in most cases not understandable by a human. So we invented a "high-level language" and wrote another software to convert this high level language into the instructions. Welcome to Compilers!
-3) There are multiple applications running on this system at the same time, somehow somebody (the Operating System) managed to abstract all this away such that the applications are able to pretend that they're the only application running on the system. Similarly, there are other resources (memory, files, I/O devices) that all need to be shared between hundreds of programs running on your system. Welcome to Operating Systems!
-4) Your device doesn't exist in isolation. In fact, most of its capabilities arise in relation with other devices. Just for the purpose of loading this webpage and viewing it, it had to send multiple packets out into the internet which somehow (like a labelled envelope) found its way to the right devices and then they responded back with the data you were requesting.</p>
-<p>In fact, all of the cases above are huge simplifications and I haven't even begun scratching the surface. <a href="https://github.com/alex/what-happens-when">Look at how much detail</a> is hidden even when you do a simple task like making a Google search.</p>
-<p>So how do you begin to make sense of all this?</p>
-<p>One of the key concepts in computer science is Abstraction. Abstraction is when you sort of squint your eyes and treat something as a black box. I am temporarily choosing to not care about what's happening inside the black box because other details are more important. Software systems are very, very complex beasts and it's beyond the scope of any person to hold in their head all the minute details of how something is working.</p>
-<p>For an example of abstraction think about interfaces to objects you commonly use. A car for example hides a lot of complicated circuitry and machinery, but at the end of the day, all you need to care about is the steering wheel and a bunch of pedals and buttons. That's the abstract view of a car. I don't care how that car turns these inputs into the multiple complicated outputs of force, direction etc. I completely ignore that because it's not important to me. I just need to get from point A to point B.</p>
+<p>Nowhere is this concept clearer than in computer science where incredibly complex systems have been built to deliver cat videos to your screen. There's nothing special about my choice of computer science here, as I'm sure there are similar levels of complexity lurking beneath the surface of any domain.</p>
+<p>You could spend years and years in deep study and you still wouldn't really fully <em>get</em> how a computer worked. There would always be gaps in your knowledge. Even behind something as seemingly simple as allowing you to read these words on your screen, there is so much hidden complexity. There are towers and towers of abstractions that enable this to happen:</p>
+<ol>
+<li>Your CPU (essentially a tiny piece of silicon that can't do much but add two numbers together) executed a few million instructions during the time you were reading this sentence. Welcome to Computer Architecture!</li>
+<li>These instructions are in most cases not understandable by a human. So we invented a "high-level language" and wrote another software to convert this high level language into the instructions. Welcome to Compilers!</li>
+<li>There are multiple applications running on this system at the same time, somehow somebody (the Operating System) managed to abstract all this away such that the applications are able to pretend that they're the only application running on the system. Similarly, there are other resources (RAM, files, I/O devices) that all need to be shared between the hundreds of programs running on your system. Welcome to Operating Systems!</li>
+<li>Your device doesn't exist in isolation. In fact, a lot of its capabilities arise in relation with other devices. Just for the purpose of loading this website and viewing it, it had to send signals out into the ether which somehow (like a labelled envelope) found its way to the right servers and then they responded back with the data you were requesting. Welcome to Networks!</li>
+</ol>
+<p>In fact, all of the cases above are huge simplifications. I haven't even begun scratching the surface. If you're curious to learn more, <a href="https://github.com/alex/what-happens-when">look at how much detail</a> is hidden behind a simple Google search.</p>
+<p>A short digression here: there is a famous result in psychology on working memory (also called <a href="https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two">Miller's Law</a>). It suggests that humans can, on average, hold about 7 objects in their short-term memory at one time. Basically, if you're playing around with concepts in your head and thinking about how things relate with one another, there seems to be a cognitive limit of about 7 items.</p>
+<p>Of course that is quite fuzzy and it is of course dangerous to generalize too much from any one result. However, I'd suggest that we can take away this lesson from Miller's Law: humans can't hold too many things in their head at the same time. Software systems are very, very complex beasts and it's beyond the scope of any person to hold in their head all the minute details of how something is working. </p>
+<p>So how do you even begin to understand and make sense of things which seems to have so many interconnected pieces?</p>
+<p>This is where <em>Abstraction</em> comes in. This is one of the fundamental building blocks of Computer Science, Engineering, and Problem Solving in general. Abstraction is when you squint your eyes and treat something as a <em>black box</em>. You are temporarily choosing to not care about what's happening inside the black box because other details are more important. </p>
+<p>For an example of abstraction think about <em>interfaces</em> to objects you commonly use. A car for example hides a lot of complicated circuitry and machinery, but at the end of the day, all you need to care about is the steering wheel and a couple of pedals. That's the abstract view of a car. I don't care how that car turns these inputs into the multiple complicated outputs of fuel intake, torque etc. I completely ignore that because it's not important to me. I just want to get from point A to point B and I just need to know how to use the interface of the car to achieve the goal.</p>
+<p>A well-designed interface (this is true of software interfaces too!) would allow you to focus on fewer aspects of the car and expend lesser <em>cognitive effort</em> when driving the car; I'm talking about manual vs automatic vs self-driving cars. </p>
+<p>Sure, that's all well and good, but this article is about <em>Dealing with Complexity</em>, not about <em>Pretending it doesn't exist</em>. After all, someone does ultimately have to design and work with the underlying complexity (<a href="https://en.wikipedia.org/wiki/Law_of_conservation_of_complexity">Tesler's Law</a>). You'd be a terrible automobile engineer if you were only able to see a car as its interface!</p>
+<h2>Part 2 - Fractal Learning</h2>
+<p>I first came across this concept in the excellent <a href="https://intermezzos.github.io/book/second-edition/fractal-learning.html">IntermezzOS Book</a>.</p>
+<blockquote>
+<p>It's impossible to learn everything at once. If you keep digging, you'll find more questions, and digging into those questions leads to more questions... at some point, you have to say "okay, I know enough about this for now, it's time to move on."It's impossible to learn everything at once. If you keep digging, you'll find more questions, and digging into those questions leads to more questions... at some point, you have to say "okay, I know enough about this for now, it's time to move on."</p>
+</blockquote>
   </div>
   <div class="tag-cloud">
     <p>

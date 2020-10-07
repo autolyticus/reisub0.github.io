@@ -155,34 +155,29 @@
 <p>The code (Lesson 1 from the tutorial) is a simple "Hello world" program that is run completely independently of any library routines. It uses nothing but writing values on registers to achieve this goal.</p>
 <p>This guide is quickly going to run you through how you can run the code from the tutorial on QEMU. This assumes you are using a Linux distribution (Arch Linux) for brevity's sake.</p>
 <p>First, install the GNU CC Cross compiler for <code>aarch64</code>. The Raspberry Pi 3 has an ARM64 SoC. A cross-compiler builds code meant for another platform. Your system (which almost certainly has an x86_64 processor will normally compile code for itself with <code>gcc</code>)</p>
-<div class="highlight"><pre><span></span>pacman -S aarch64-linux-gnu-gcc
-</pre></div>
-
+<div class="bash highlight"><pre><span></span><code>pacman -S aarch64-linux-gnu-gcc
+</code></pre></div>
 
 <p>Now, we install QEMU, and RPI3 support for it.</p>
-<div class="highlight"><pre><span></span>pacman -S qemu qemu-arch-extra
-</pre></div>
-
+<div class="bash highlight"><pre><span></span><code>pacman -S qemu qemu-arch-extra
+</code></pre></div>
 
 <p>For our source code, we clone the RPI OS repository,</p>
-<div class="highlight"><pre><span></span>git clone https://github.com/s-matyukevich/raspberry-pi-os
+<div class="bash highlight"><pre><span></span><code>git clone https://github.com/s-matyukevich/raspberry-pi-os
 <span class="nb">cd</span> raspberry-pi-os
-</pre></div>
-
+</code></pre></div>
 
 <p>Our code is in <code>src/lesson01</code>. Take some time to go through the line-by-line documentation at <a href="https://github.com/s-matyukevich/raspberry-pi-os/blob/master/docs/lesson01/rpi-os.md">docs/lesson01</a> which also explains our motivation and the code structure.</p>
 <p>Open each and every file in the <code>src</code> directory to understand how they all fit together. Take a look at <code>./Makefile</code> to understand the build process.</p>
 <p>We are now ready to build our code and run it on QEMU.</p>
-<div class="highlight"><pre><span></span>make clean <span class="o">&amp;&amp;</span> make
-</pre></div>
-
+<div class="bash highlight"><pre><span></span><code>make clean <span class="o">&amp;&amp;</span> make
+</code></pre></div>
 
 <p>This generates our kernel image <code>kernel8.img</code>.</p>
 <p>Our job now is simple. Run this kernel image on our emulated system with QEMU. For this, use the following command.</p>
-<div class="highlight"><pre><span></span><span class="c1">#This sets uart to null and connects mini-uart to stdio, booting our kernel image</span>
+<div class="bash highlight"><pre><span></span><code><span class="c1">#This sets uart to null and connects mini-uart to stdio, booting our kernel image</span>
 qemu-system-aarch64 -M raspi3 -serial null -serial mon:stdio -nographic -kernel kernel8.img
-</pre></div>
-
+</code></pre></div>
 
 <p>This should give us the output <code>Hello, world!</code> followed by echoing any input characters.</p>
 <p>Congratulations, you just made your first bare-metal application.</p>
