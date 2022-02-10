@@ -16,6 +16,9 @@ jobs:
     - name: Checkout submodules
       uses: textbook/git-checkout-submodule-action@master
 
+    - name: Checkout submodules
+      run: git submodule update --init --recursive
+
     # - name: Install requirements
     #   run: pip install -r requirements.txt
 
