@@ -15,7 +15,7 @@ jobs:
     - name: Setup OS
       run: |
         sudo apt-get update
-        sudo apt-get upgrade
+        # sudo apt-get upgrade
 
     - name: Setup Git
       run: |
