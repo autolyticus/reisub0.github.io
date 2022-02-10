@@ -21,6 +21,9 @@ jobs:
       run: |
         sudo apt-get install git
 
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
     - name: Checkout submodules
       run: git checkout
 
